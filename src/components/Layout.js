@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { ThemeProvider } from '@material-ui/styles'
-import { muiTheme } from '~/config/theme'
-import { Grid } from '@material-ui/core'
+import { muiTheme } from '../config/theme'
 
-const Wrapper = styled(Grid)`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  padding-top: 72px;
   background-color: #101112;
   color: #ffffff;
 `
@@ -15,12 +15,7 @@ const Wrapper = styled(Grid)`
 const Layout = (props) => {
   return (
     <ThemeProvider theme={muiTheme}>
-      <Wrapper
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="center"
-      >
+      <Wrapper>
         {props.children}
       </Wrapper>
     </ThemeProvider>
@@ -28,7 +23,9 @@ const Layout = (props) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(
+    PropTypes.element
+  ),
 }
 
 export default Layout

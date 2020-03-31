@@ -1,10 +1,16 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
-import { MemberList } from '~/components/MemberList'
+import store from '../store'
+import Layout from '../components/Layout'
+import SlidingButtons from '../components/SlidingButtons'
+import ListOfPosts from '../components/ListOfPosts'
 
-const Home = () =>
-  <Grid item xs sm={4} md={6} lg={6}>
-    <MemberList />
-  </Grid>
+const { list } = store.getState().posts
+
+const Home = () => (
+  <Layout>
+    <SlidingButtons />
+    <ListOfPosts posts={list} />
+  </Layout>
+)
 
 export default Home

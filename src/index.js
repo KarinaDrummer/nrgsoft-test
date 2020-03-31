@@ -1,9 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import * as serviceWorker from './serviceWorker'
-import Router from './config/router'
+import store from './store'
+import Root from './components/Root'
 
-ReactDOM.render(<Router/>, document.getElementById('root'))
+render(<Root store={store} />, document.getElementById('root'))
 
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register()

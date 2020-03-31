@@ -1,11 +1,11 @@
 {
-  "name": "cra-boilerplate",
-  "version": "0.2.0",
-  "homepage": "http://board.rina.wtf",
-  "author": "Karina Shedlbauer <k@rina.wtf> (https://ka.rina.wtf)",
+  "name": "nrgsoft-test",
+  "version": "0.3.0",
+  "homepage": "http://nrgsofttest.rina.wtf",
+  "author": "Karina <k@rina.wtf> (https://ka.rina.wtf)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KarinaBauer/cra-boilerplate.git"
+    "url": "https://github.com/KarinaLisp/nrgsoft-test.git"
   },
   "private": true,
   "scripts": {
@@ -41,8 +41,11 @@
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "react-loadable": "5.5.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "styled-components": "5.0.1",
     "typescript": "3.8.3"
   },
@@ -53,46 +56,19 @@
     "@babel/preset-env": "7.9.0",
     "@babel/register": "7.9.0",
     "babel-plugin-ramda": "2.0.0",
-    "babel-plugin-root-import": "^5.1.0",
-    "babel-plugin-wildcard": "6.0.0",
     "customize-cra": "0.5.0",
     "eslint": "6.8.0",
-    "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
-    "eslint-plugin-import": "2.20.1",
     "react-app-rewired": "2.1.5"
   },
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
-    ],
-    "plugins": [
-      [
-        "babel-plugin-root-import",
-        {
-          "rootPathSuffix": "./src",
-          "rootPathPrefix": "~"
-        }
-      ],
-      [
-        "wildcard",
-        {
-          "noModifyCase": true
-        }
-      ]
     ]
   },
   "eslintConfig": {
     "root": true,
     "parser": "babel-eslint",
-    "settings": {
-      "import/resolver": {
-        "babel-plugin-root-import": {
-          "rootPathPrefix": "~",
-          "rootPathSuffix": "src"
-        }
-      }
-    },
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended"
