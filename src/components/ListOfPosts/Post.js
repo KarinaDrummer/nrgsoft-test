@@ -15,11 +15,15 @@ import { theme } from '../../config/theme'
 const ListEntry = styled(ListItem)`
   &:hover {
     background-color: ${theme.selection};
-  }
+  };
+  & a {
+    color: #c1c1c1;
+  };
 `
 
 const Post = ({ post }) => {
   const title = post.data.title
+  const url = `https://reddit.com${post.data.permalink}`
   const liked = false
 
   return (
@@ -37,7 +41,9 @@ const Post = ({ post }) => {
         </IconButton>
       </ListItemIcon>
 
-      <ListItemText primary={title} />
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <ListItemText primary={title} />
+      </a>
 
     </ListEntry>
   )
