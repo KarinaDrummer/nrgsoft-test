@@ -4,8 +4,13 @@ import api from '../api'
 // Worker
 function* fetchPost(action) {
   try {
-    const post = yield call(api.fetchPosts, action.payload.subredditID)
-    yield put({ type: "ADD_POST", post: post })
+    const
+      { data } = yield call(api.fetchPosts, action.payload.subredditID),
+      randomIndex = Math.floor(Math.random() * (data.children.length)),
+      { title, permalink } = data.children[randomIndex]
+
+    yield put({ type: "ADD_POST", post: { title, permalink } })
+
   } catch (error) {
     console.error(error.message)
   }
