@@ -1,16 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  IconButton
-} from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import { theme } from '../../config/theme'
+import { ListItem, ListItemText, ListItemIcon, IconButton
+} from '@material-ui/core'
 
 const ListEntry = styled(ListItem)`
   &:hover {

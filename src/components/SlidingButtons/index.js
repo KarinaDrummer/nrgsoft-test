@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { map, addIndex } from 'ramda'
-import { Box, Button } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import { theme } from '../../config/theme'
+import subreddits from '../../config/subreddits'
+import Button from './Button'
 
 const StyledBox = styled(Box)`
   display: flex;
@@ -14,18 +16,14 @@ const StyledBox = styled(Box)`
   background-color: ${theme.paperBg};
 `
 
-const subreddits = [
-  'Frontend', 'ReactJS', 'VueJS', 'Angular'
-]
-
-const renderButton = (label, index) => (
-  <Button variant="contained" color="primary" key={index}>{label}</Button>
+const renderButton = (value, index) => (
+  <Button label={value.title} subredditID={value.id} key={index} />
 )
 
-const FetchButtons = () => (
+const SlidingButtons = () => (
   <StyledBox>
     { addIndex(map)(renderButton, subreddits) }
   </StyledBox>
 )
 
-export default FetchButtons
+export default SlidingButtons
