@@ -7,9 +7,7 @@ import { theme } from '../../config/theme'
 import Post from './Post'
 
 const StyledBox = styled(Box)`
-  margin: 0 24px;
-  width: calc(100% - 48px);
-  height: calc(100% - 312px);
+  margin: 0 24px 24px;
   overflow-x: auto;
   background-color: ${theme.paperBg};
 `

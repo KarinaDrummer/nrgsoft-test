@@ -1,24 +1,42 @@
+/* eslint no-unused-vars: "warn" */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { Button as MuiButton } from '@material-ui/core'
 import { FETCH_POST } from '../../store/types'
+
+const SlidingButton = styled(MuiButton)`
+  @keyframes slide {
+    0% { left: 0; }
+    100% { left: 90%; }
+  }
+
+  width: 128px;
+  animation: slide 7s ease-in-out infinite alternate;
+
+  &:hover {
+    animation-play-state: paused;
+    background-color: #6c0b2b !important;
+  }
+`
 
 const Button = ({ label, subredditID, dispatch }) => {
   console.log(dispatch)
 
-  const requestPost = (subredditID) => {
-    dispatch({ type: FETCH_POST, subredditID })
+  const requestPost = () => {
+    // dispatch({ type: FETCH_POST, subredditID })
   }
 
   return (
-    <MuiButton
+    <SlidingButton
       variant="contained"
       color="primary"
-      onClick={ requestPost(subredditID) }
+      onClick={ requestPost }
     >
       { label }
-    </MuiButton>
+    </SlidingButton>
   )
 }
 
