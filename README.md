@@ -1,3 +1,3 @@
-# Karina Bauer's react boilerplate
+# Test exercise for nrgsoft
 
-Extended create-react-app boilerplate
+See latest production build on https://nrgsoft.rina.wtf
