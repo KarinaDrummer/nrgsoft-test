@@ -16,7 +16,6 @@ function posts(state = initialState, action) {
       }
 
     case REMOVE_POST:
-      console.log(dissoc( action.localIndex, state.registry ))
       return {
         ...state,
         registry: dissoc( action.localIndex, state.registry )

@@ -28,7 +28,7 @@ const Post = ({ post }) => {
     dispatch = useDispatch(),
 
     deletePost = () => {
-      dispatch({ type: REMOVE_POST, index: post.localIndex })
+      dispatch({ type: REMOVE_POST, localIndex: post.localIndex })
     }
 
   return (
