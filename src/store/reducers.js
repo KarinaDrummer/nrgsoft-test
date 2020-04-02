@@ -1,20 +1,19 @@
 import { combineReducers } from 'redux'
 import { without } from "ramda"
-import mock from '../config/mock'
 import { ADD_POST, REMOVE_POST } from './types'
 
 const initialState = {
-  list: mock,
+  list: [],
 }
 
 function posts(state = initialState, action) {
   switch (action.type) {
 
     case ADD_POST:
-      return { ...state, posts: [...state.posts, action.post] }
+      return { ...state, list: [...state.list, action.post] }
 
     case REMOVE_POST:
-      return { ...state, posts: without([action.post], state.posts) }
+      return { ...state, list: without([action.post], state.list) }
 
     default:
       return state
