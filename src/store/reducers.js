@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { dissoc } from "ramda"
+import { assoc, evolve, not, dissoc } from "ramda"
 import {
   ADD_POST,
   TOGGLE_LIKE,
@@ -16,19 +16,20 @@ function posts(state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        registry: { ...state.registry, [action.post.localIndex]: action.post }
+        registry: {
+          ...state.registry,
+          [action.post.localIndex]: action.post
+        }
       }
 
     case TOGGLE_LIKE:
       return {
         ...state,
-        registry: {
-          ...state.registry,
-          [action.localIndex]: {
-            ...state.registry[action.localIndex],
-            isLiked: !(state.registry[action.localIndex].isLiked)
-          }
-        }
+        registry: assoc(
+          action.localIndex,
+          evolve({isLiked: not}, state.registry[action.localIndex]),
+          state.registry
+        )
       }
 
     case REMOVE_POST:
