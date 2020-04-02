@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { map, addIndex } from 'ramda'
 import { Box, List } from '@material-ui/core'
@@ -13,13 +14,21 @@ const StyledBox = styled(Box)`
   background-color: ${theme.paperBg};
 `
 
-const renderEntry = (entry, index) => (<Post key={index} post={entry}/>)
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts.list
+  }
+}
 
-const ListOfPosts = (props) => {
+const renderEntry = (entry, index) => (
+  <Post key={index} post={entry}/>
+)
+
+const ListOfPosts = ({ posts }) => {
   return (
     <StyledBox boxShadow={1}>
       <List>
-        { addIndex(map)(renderEntry, props.posts) }
+        { addIndex(map)(renderEntry, posts) }
       </List>
     </StyledBox>
   )
@@ -29,4 +38,4 @@ ListOfPosts.propTypes = {
   posts: PropTypes.array,
 }
 
-export default ListOfPosts
+export default connect(mapStateToProps)(ListOfPosts)

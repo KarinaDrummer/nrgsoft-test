@@ -6,9 +6,10 @@ import { FETCH_POST, ADD_POST } from './types'
 function* fetchPost(action) {
   try {
     const
-      { data } = yield call(api.fetchPosts, action.payload.subredditID),
-      randomIndex = Math.floor(Math.random() * (data.children.length)),
-      { title, permalink } = data.children[randomIndex]
+      { data: response } = yield call(api.fetchPosts, action.subredditID),
+      { children: listOfPosts } = response.data,
+      randomIndex = Math.floor(Math.random() * (listOfPosts.length)),
+      { title, permalink } = listOfPosts[randomIndex].data
 
     yield put({ type: ADD_POST, post: { title, permalink } })
 
