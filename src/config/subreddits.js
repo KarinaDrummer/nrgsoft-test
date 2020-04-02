@@ -1,18 +1,18 @@
 export default [
   {
     title: 'Frontend',
-    id: 'frontend',
+    id: '/r/frontend',
   },
   {
     title: 'ReactJS',
-    id: 'reactjs',
+    id: '/r/reactjs',
   },
   {
     title: 'VueJS',
-    id: 'vuejs',
+    id: '/r/vuejs',
   },
   {
     title: 'Angular',
-    id: 'angular',
+    id: '/r/angular',
   },
 ]

@@ -5,6 +5,6 @@ const corsProxy = 'http://cors.rina.wtf'
 export default {
   fetchPosts: async (subredditID) =>
     await get(
-      `${corsProxy}/https://reddit.com/r/${subredditID}.json`
+      `${corsProxy}/https://reddit.com${subredditID}.json`
     )
 }
