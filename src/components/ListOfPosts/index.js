@@ -8,6 +8,7 @@ import Post from './Post'
 
 const StyledBox = styled(Box)`
   margin: 0 24px 24px;
+  height: 100%;
   overflow-x: auto;
   background-color: ${theme.paperBg};
 `
