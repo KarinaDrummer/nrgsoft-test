@@ -24,17 +24,18 @@ const
   `
 
 const Button = ({ label, subredditID }) => {
-  const dispatch = useDispatch()
+  const
+    dispatch = useDispatch(),
 
-  const requestPost = () => {
-    dispatch({ type: FETCH_POST, subredditID })
-  }
+    requestPost = (subredditID) => {
+      dispatch({ type: FETCH_POST, subredditID })
+    }
 
   return (
     <SlidingButton
       variant="contained"
       color="primary"
-      onClick={ requestPost }
+      onClick={ () => requestPost(subredditID) }
     >
       { label }
     </SlidingButton>

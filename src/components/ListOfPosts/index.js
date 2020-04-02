@@ -14,21 +14,22 @@ const StyledBox = styled(Box)`
   background-color: ${theme.paperBg};
 `
 
-const mapStateToProps = (state) => {
-  return {
-    posts: state.posts.list
-  }
-}
+const mapStateToProps = (state) => ({
+  posts: Object.values(state.posts.registry),
+})
 
-const renderEntry = (entry, index) => (
-  <Post key={index} post={entry}/>
-)
+const
+  mapWithIndex = addIndex(map),
+
+  renderListItem = (entry, index) => (
+    <Post key={ index } post={ entry }/>
+  )
 
 const ListOfPosts = ({ posts }) => {
   return (
     <StyledBox boxShadow={1}>
       <List>
-        { addIndex(map)(renderEntry, posts) }
+        { mapWithIndex(renderListItem, posts) }
       </List>
     </StyledBox>
   )

@@ -22,8 +22,8 @@ const
   `
 
 const renderButton = (value, index) => (
-  <Track key={index}>
-    <Button label={value.title} subredditID={value.id} />
+  <Track key={ index }>
+    <Button label={ value.title } subredditID={ value.id } />
   </Track>
 )
 

@@ -1,19 +1,26 @@
 import { combineReducers } from 'redux'
-import { without } from "ramda"
+import { dissoc } from "ramda"
 import { ADD_POST, REMOVE_POST } from './types'
 
 const initialState = {
-  list: [],
+  registry: {},
 }
 
 function posts(state = initialState, action) {
   switch (action.type) {
 
     case ADD_POST:
-      return { ...state, list: [...state.list, action.post] }
+      return {
+        ...state,
+        registry: { ...state.registry, [action.post.localIndex]: action.post }
+      }
 
     case REMOVE_POST:
-      return { ...state, list: without([action.post], state.list) }
+      console.log(dissoc( action.localIndex, state.registry ))
+      return {
+        ...state,
+        registry: dissoc( action.localIndex, state.registry )
+      }
 
     default:
       return state
