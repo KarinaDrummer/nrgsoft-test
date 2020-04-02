@@ -11,7 +11,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "deploy": "node scripts/deploy",
+    "deploy": "ssh karina@rina.wtf fish -- < ./deploy.fish",
     "release": "npm run build && npm run deploy",
     "test": "react-app-rewired test"
   },
