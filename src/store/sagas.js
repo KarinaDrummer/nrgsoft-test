@@ -13,7 +13,8 @@ function* fetchPost(action) {
       localIndex = uuidv4(),
       { title, permalink } = listOfPosts[randomIndex].data
 
-    yield put({ type: ADD_POST, post: { localIndex, title, permalink } })
+    const post = { localIndex, title, permalink, isLiked: false }
+    yield put({ type: ADD_POST, post })
 
   } catch (error) {
     console.error(error.message)
