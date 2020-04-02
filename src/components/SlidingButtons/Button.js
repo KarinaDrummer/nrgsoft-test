@@ -10,7 +10,7 @@ import { FETCH_POST } from '../../store/types'
 const SlidingButton = styled(MuiButton)`
   @keyframes slide {
     0% { left: 0; }
-    100% { left: 90%; }
+    100% { left: 87%; }
   }
 
   width: 128px;
