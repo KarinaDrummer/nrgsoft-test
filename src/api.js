@@ -1,6 +1,6 @@
 import { get } from 'axios'
 
-const corsProxy = 'https://cors-anywhere.herokuapp.com'
+const corsProxy = 'http://cors.rina.wtf'
 
 export default {
   fetchPosts: async (subredditID) =>
