@@ -18,8 +18,7 @@ const ListEntry = styled(ListItem)`
 `
 
 const Post = ({ post }) => {
-  const title = post.data.title
-  const url = `https://reddit.com${post.data.permalink}`
+  const url = `https://reddit.com${post.permalink}`
   const liked = false
 
   return (
@@ -38,7 +37,7 @@ const Post = ({ post }) => {
       </ListItemIcon>
 
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <ListItemText primary={title} />
+        <ListItemText primary={post.title} />
       </a>
 
     </ListEntry>
