@@ -6,18 +6,12 @@ import rootReducer from './reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const configureStore = (preloadedState) => {
-  const store = createStore(
-    rootReducer,
-    preloadedState,
-    composeWithDevTools(
-      applyMiddleware(sagaMiddleware)
-    )
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(sagaMiddleware)
   )
+)
 
-  sagaMiddleware.run(rootSaga)
-  return store
-}
-
-const store = configureStore()
+sagaMiddleware.run(rootSaga)
 export default store
