@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: "warn" */
 
 import React from 'react'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button as MuiButton } from '@material-ui/core'
@@ -25,11 +25,11 @@ const
     }
   `
 
-const Button = ({ label, subredditID, dispatch }) => {
-  console.log(dispatch)
+const Button = ({ label, subredditID }) => {
+  const dispatch = useDispatch()
 
   const requestPost = () => {
-    // dispatch({ type: FETCH_POST, subredditID })
+    dispatch({ type: FETCH_POST, subredditID })
   }
 
   return (
@@ -48,7 +48,5 @@ Button.propTypes = {
   subredditID: PropTypes.string.isRequired,
   dispatch: PropTypes.func,
 }
-
-connect()(Button)
 
 export default Button
