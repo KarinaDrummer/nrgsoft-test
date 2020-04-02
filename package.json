@@ -75,16 +75,10 @@
       "eslint:recommended",
       "plugin:react/recommended"
     ],
-    "env": {
-      "browser": true,
-      "jest": false,
-      "es6": true
-    },
+    "env": { "browser": true, "jest": false, "es6": true },
     "rules": {
-      "semi": [
-        "error",
-        "never"
-      ]
+      "semi": ["error", "never"],
+      "no-unused-vars": "warn"
     }
   }
 }
