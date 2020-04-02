@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button as MuiButton } from '@material-ui/core'
-import { FETCH_POST } from '../../store/types'
+import { FETCH_POST } from '../../store/actionTypes'
 
 const
   buttonWidth = 128,

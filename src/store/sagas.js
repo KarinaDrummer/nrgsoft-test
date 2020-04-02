@@ -1,7 +1,7 @@
 import { call, put, takeEvery, all } from 'redux-saga/effects'
 import { v4 as uuidv4 } from 'uuid'
 import api from '../api'
-import { FETCH_POST, ADD_POST } from './types'
+import { FETCH_POST, ADD_POST } from './actionTypes'
 
 // Worker
 function* fetchPost(action) {

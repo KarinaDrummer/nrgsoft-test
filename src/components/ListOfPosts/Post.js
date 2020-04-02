@@ -5,27 +5,26 @@ import styled from 'styled-components'
 import DeleteIcon from '@material-ui/icons/Delete'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import { REMOVE_POST } from '../../store/types'
+import { red } from '@material-ui/core/colors'
+import { TOGGLE_LIKE, REMOVE_POST } from '../../store/actionTypes'
 import { theme } from '../../config/theme'
 import { ListItem, ListItemText, ListItemIcon, IconButton
 } from '@material-ui/core'
 
 const ListEntry = styled(ListItem)`
-  &:hover {
-    background-color: ${theme.selection};
-  };
-  & a {
-    color: #c1c1c1;
-  };
+  &:hover { background-color: ${theme.selection}; };
+  & a { color: #c1c1c1; };
 `
 
-const
-  liked = false,
-  getFullLink = post => `https://reddit.com${post.permalink}`
+const getFullLink = post => `https://reddit.com${post.permalink}`
 
 const Post = ({ post }) => {
   const
     dispatch = useDispatch(),
+
+    likePost = () => {
+      dispatch({ type: TOGGLE_LIKE, localIndex: post.localIndex })
+    },
 
     deletePost = () => {
       dispatch({ type: REMOVE_POST, localIndex: post.localIndex })
@@ -34,8 +33,12 @@ const Post = ({ post }) => {
   return (
     <ListEntry>
       <ListItemIcon>
-        <IconButton edge="start">
-          { liked ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
+        <IconButton edge="start" onClick={ likePost }>
+          {
+            post.isLiked
+              ? <FavoriteIcon style={{ color: red[900] }} />
+              : <FavoriteBorderIcon />
+          }
         </IconButton>
       </ListItemIcon>
 
