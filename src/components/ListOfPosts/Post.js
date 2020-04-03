@@ -2,18 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import DeleteIcon from '@material-ui/icons/Delete'
+import { ListItem, ListItemText } from '@material-ui/core'
 import { toggleLike, removePost } from '../../store/actions'
 import { theme } from '../../config/theme'
 import LikeButton from './LikeButton'
-import { ListItem, ListItemText, ListItemIcon, IconButton
-} from '@material-ui/core'
+import RemoveButton from './RemoveButton'
 
 const actionCreators = {
   toggleLike, removePost,
 }
-
-const getFullLink = post => `https://reddit.com${post.permalink}`
 
 const ListEntry = styled(ListItem)`
   &:hover { background-color: ${theme.selection}; };
@@ -27,13 +24,12 @@ const Post = ({ post, toggleLike, removePost }) => (
       action={ () => toggleLike(post.localIndex) }
     />
 
-    <ListItemIcon>
-      <IconButton edge="start" onClick={ () => removePost(post.localIndex) }>
-        <DeleteIcon />
-      </IconButton>
-    </ListItemIcon>
+    <RemoveButton action={ () => removePost(post.localIndex) } />
 
-    <a href={ getFullLink(post) } target="_blank" rel="noopener noreferrer">
+    <a
+      href={ `https://reddit.com${post.permalink}` }
+      target="_blank" rel="noopener noreferrer"
+    >
       <ListItemText primary={ post.title } />
     </a>
   </ListEntry>
