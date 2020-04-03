@@ -1,14 +1,13 @@
 import { call, put, takeEvery, all } from 'redux-saga/effects'
 import { v4 as uuidv4 } from 'uuid'
-import api from '../api'
+import { getPosts } from '../api'
 import { FETCH_POST, ADD_POST } from './actionTypes'
 
 // Worker
 function* fetchPost(action) {
   try {
     const
-      { data: response } = yield call(api.fetchPosts, action.subredditID),
-      { children: listOfPosts } = response.data,
+      listOfPosts = yield call(getPosts, action.subredditID),
       randomIndex = Math.floor(Math.random() * (listOfPosts.length)),
       localIndex = uuidv4(),
       { title, permalink } = listOfPosts[randomIndex].data
