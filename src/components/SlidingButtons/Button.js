@@ -1,9 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button as MuiButton } from '@material-ui/core'
-import { FETCH_POST } from '../../store/actionTypes'
+import { fetchPost } from '../../store/actions'
+
+const actionCreators = {
+  fetchPost,
+}
 
 const
   buttonWidth = 128,
@@ -23,29 +27,20 @@ const
     }
   `
 
-const Button = ({ label, subredditID }) => {
-  const
-    dispatch = useDispatch(),
-
-    requestPost = (subredditID) => {
-      dispatch({ type: FETCH_POST, subredditID })
-    }
-
-  return (
-    <SlidingButton
-      variant="contained"
-      color="primary"
-      onClick={ () => requestPost(subredditID) }
-    >
-      { label }
-    </SlidingButton>
-  )
-}
+const Button = ({ label, subredditID, fetchPost }) => (
+  <SlidingButton
+    variant="contained"
+    color="primary"
+    onClick={ () => fetchPost(subredditID) }
+  >
+    { label }
+  </SlidingButton>
+)
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   subredditID: PropTypes.string.isRequired,
-  dispatch: PropTypes.func,
+  fetchPost: PropTypes.func.isRequired,
 }
 
-export default Button
+export default connect(null, actionCreators)(Button)

@@ -8,7 +8,7 @@ export function addPost(post) {
   return { type: ADD_POST, post }
 }
 
-export function likePost(localIndex) {
+export function toggleLike(localIndex) {
   return { type: TOGGLE_LIKE, localIndex }
 }
 
