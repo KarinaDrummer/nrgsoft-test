@@ -29,9 +29,8 @@ const
 
 const Button = ({ label, subredditID, fetchPost }) => (
   <SlidingButton
-    variant="contained"
-    color="primary"
     onClick={ () => fetchPost(subredditID) }
+    variant="contained" color="primary"
   >
     { label }
   </SlidingButton>
