@@ -19,7 +19,7 @@
     "production": [
       ">1%",
       "not dead",
-      "not ie",
+      "not ie >= 0",
       "not op_mini all"
     ],
     "development": [
