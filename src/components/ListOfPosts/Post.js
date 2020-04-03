@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import DeleteIcon from '@material-ui/icons/Delete'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import { red } from '@material-ui/core/colors'
 import { toggleLike, removePost } from '../../store/actions'
 import { theme } from '../../config/theme'
+import LikeButton from './LikeButton'
 import { ListItem, ListItemText, ListItemIcon, IconButton
 } from '@material-ui/core'
 
@@ -24,15 +22,10 @@ const ListEntry = styled(ListItem)`
 
 const Post = ({ post, toggleLike, removePost }) => (
   <ListEntry>
-    <ListItemIcon>
-      <IconButton edge="start" onClick={ () => toggleLike(post.localIndex) }>
-        {
-          post.isLiked
-            ? <FavoriteIcon style={{ color: red[900] }} />
-            : <FavoriteBorderIcon />
-        }
-      </IconButton>
-    </ListItemIcon>
+    <LikeButton
+      active={ post.isLiked }
+      action={ () => toggleLike(post.localIndex) }
+    />
 
     <ListItemIcon>
       <IconButton edge="start" onClick={ () => removePost(post.localIndex) }>
@@ -42,7 +35,6 @@ const Post = ({ post, toggleLike, removePost }) => (
 
     <a href={ getFullLink(post) } target="_blank" rel="noopener noreferrer">
       <ListItemText primary={ post.title } />
-      { post.index }
     </a>
   </ListEntry>
 )
