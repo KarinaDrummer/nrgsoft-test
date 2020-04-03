@@ -1,9 +1,4 @@
-import {
-  FETCH_POST,
-  ADD_POST,
-  TOGGLE_LIKE,
-  REMOVE_POST,
-} from './actionTypes'
+import { FETCH_POST, ADD_POST, TOGGLE_LIKE, REMOVE_POST } from './actionTypes'
 
 export function fetchPost(subredditID) {
   return { type: FETCH_POST, subredditID }
