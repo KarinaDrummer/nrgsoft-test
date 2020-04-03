@@ -25,15 +25,13 @@ const
     <Post key={ index } post={ entry }/>
   )
 
-const ListOfPosts = ({ posts }) => {
-  return (
-    <StyledBox boxShadow={1}>
-      <List>
-        { mapWithIndex(renderListItem, posts) }
-      </List>
-    </StyledBox>
-  )
-}
+const ListOfPosts = ({ posts }) => (
+  <StyledBox boxShadow={1}>
+    <List>
+      { mapWithIndex(renderListItem, posts) }
+    </List>
+  </StyledBox>
+)
 
 ListOfPosts.propTypes = {
   posts: PropTypes.array,
