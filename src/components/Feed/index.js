@@ -25,7 +25,7 @@ const
     <Post key={ index } post={ entry }/>
   )
 
-const ListOfPosts = ({ posts }) => (
+const Feed = ({ posts }) => (
   <StyledBox boxShadow={1}>
     <List>
       { mapWithIndex(renderListItem, posts) }
@@ -33,8 +33,8 @@ const ListOfPosts = ({ posts }) => (
   </StyledBox>
 )
 
-ListOfPosts.propTypes = {
+Feed.propTypes = {
   posts: PropTypes.array,
 }
 
-export default connect(mapStateToProps)(ListOfPosts)
+export default connect(mapStateToProps)(Feed)

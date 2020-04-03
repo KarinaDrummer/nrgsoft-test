@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import SlidingButtons from '../components/SlidingButtons'
-import ListOfPosts from '../components/ListOfPosts'
+import Feed from '../components/Feed'
 
 const Home = () => (
   <Layout>
     <SlidingButtons />
-    <ListOfPosts />
+    <Feed />
   </Layout>
 )
 
