@@ -1,7 +1,7 @@
 import { setup } from 'axios-cache-adapter'
 import { lensPath, view } from 'ramda'
 
-const corsProxy = 'http://cors.rina.wtf'
+const corsProxy = 'https://cors.rina.wtf'
 
 // Axios instance with pre-configured `axios-cache-adapter` attached to it
 const axios = setup({
