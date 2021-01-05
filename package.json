@@ -35,7 +35,7 @@
     "@types/node": "12.12.31",
     "@types/react": "16.9.25",
     "@types/react-dom": "16.9.5",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "axios-cache-adapter": "^2.5.0",
     "history": "4.10.1",
     "prop-types": "^15.7.2",
